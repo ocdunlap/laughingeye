@@ -9,11 +9,6 @@ var current_count:int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 	
 
 func _on_player_reticle_update_quota(amount):
@@ -23,4 +18,3 @@ func _on_player_reticle_update_quota(amount):
 		current_count = 0
 		fuel_meter.refill_fuel()
 	quota_text.text = str(current_count) + "/" + str(current_quota)
-	pass # Replace with function body.

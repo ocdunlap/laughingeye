@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c28078icgk7kq"]
+[gd_scene load_steps=10 format=3 uid="uid://c28078icgk7kq"]
 
 [ext_resource type="PackedScene" uid="uid://jngnashrto5q" path="res://ScenesGeneral/player_reticle.tscn" id="1_0mxmq"]
 [ext_resource type="Texture2D" uid="uid://cuambwoccgynl" path="res://ArtAssets/SimpleTileset/tileset and some textures/foresttileset.png" id="1_bdv7x"]
 [ext_resource type="Script" path="res://Scripts/GameWorld.gd" id="2_hkw1s"]
+[ext_resource type="Script" path="res://Scripts/ExploreMain.gd" id="3_fpsoa"]
 [ext_resource type="PackedScene" uid="uid://c0xgyerjpnhgg" path="res://ScenesGeneral/LittleGuys/little_bat.tscn" id="3_po7fq"]
 [ext_resource type="PackedScene" uid="uid://cvgnw2mv4qaf8" path="res://ScenesGeneral/ui_main.tscn" id="5_a7odk"]
 
@@ -766,6 +767,7 @@ position_smoothing_speed = 3.0
 script = ExtResource("2_hkw1s")
 
 [node name="ExploreMain" type="Node2D" parent="GameWorld"]
+script = ExtResource("3_fpsoa")
 
 [node name="BackgroundTileMap" type="TileMap" parent="GameWorld/ExploreMain"]
 z_index = -10
@@ -773,111 +775,111 @@ tile_set = SubResource("TileSet_govrs")
 format = 2
 layer_0/tile_data = PackedInt32Array(1, 65538, 1, 2, 65538, 1, 65538, 65538, 1, 131075, 65538, 1, 131076, 65538, 1, 196612, 65538, 1, 65539, 65538, 1, 3, 65538, 1, 4, 65538, 1, 65540, 65538, 1, 5, 131074, 1, 65541, 131074, 1, 131077, 131074, 1, 196613, 131074, 1, 262149, 131074, 2, -65531, 131074, 0, 196611, 65538, 1, 262148, 65538, 2, 196610, 2, 2, 131073, 2, 2, 65536, 2, 2, -65536, 2, 0, -65532, 65538, 0, -65533, 65538, 0, -65534, 65538, 0, -65535, 65538, 0, 0, 2, 1, 262147, 2, 2, 131074, 65538, 1, 65537, 65538, 1)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="GameWorld/ExploreMain"]
+[node name="CreatureSpawner" type="NavigationRegion2D" parent="GameWorld/ExploreMain"]
 navigation_polygon = SubResource("NavigationPolygon_uin8r")
 
-[node name="LittleBat" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 
-[node name="LittleBat2" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat2" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(170, -52)
 
-[node name="LittleBat3" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat3" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(46, 0)
 
-[node name="LittleBat4" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat4" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-177, -115)
 
-[node name="LittleBat5" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat5" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-17, -65)
 
-[node name="LittleBat6" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat6" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-39, 81)
 
-[node name="LittleBat7" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat7" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 
-[node name="LittleBat8" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat8" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-130, 0)
 
-[node name="LittleBat9" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat9" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 
-[node name="LittleBat10" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat10" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-256, 6)
 
-[node name="LittleBat11" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat11" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(92, -112)
 
-[node name="LittleBat12" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat12" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 
-[node name="LittleBat13" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat13" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(487, -215)
 
-[node name="LittleBat14" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat14" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(657, -267)
 
-[node name="LittleBat15" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat15" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(533, -215)
 
-[node name="LittleBat16" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat16" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(310, -330)
 
-[node name="LittleBat17" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat17" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(470, -280)
 
-[node name="LittleBat18" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat18" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(448, -134)
 
-[node name="LittleBat19" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat19" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(487, -215)
 
-[node name="LittleBat20" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat20" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(357, -215)
 
-[node name="LittleBat21" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat21" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(487, -215)
 
-[node name="LittleBat22" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat22" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(231, -209)
 
-[node name="LittleBat23" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat23" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(579, -327)
 
-[node name="LittleBat24" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat24" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(487, -215)
 
-[node name="LittleBat25" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat25" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-343, 182)
 
-[node name="LittleBat26" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat26" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-173, 130)
 
-[node name="LittleBat27" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat27" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-297, 182)
 
-[node name="LittleBat28" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat28" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-520, 67)
 
-[node name="LittleBat29" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat29" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-360, 117)
 
-[node name="LittleBat30" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat30" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-382, 263)
 
-[node name="LittleBat31" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat31" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-343, 182)
 
-[node name="LittleBat32" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat32" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-473, 182)
 
-[node name="LittleBat33" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat33" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-343, 182)
 
-[node name="LittleBat34" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat34" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-599, 188)
 
-[node name="LittleBat35" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat35" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-251, 70)
 
-[node name="LittleBat36" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+[node name="LittleBat36" parent="GameWorld/ExploreMain/CreatureSpawner" instance=ExtResource("3_po7fq")]
 position = Vector2(-343, 182)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameWorld"]
