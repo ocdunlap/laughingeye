@@ -2,10 +2,10 @@ extends Node2D
 
 @onready var creature_zone = $CreatureSpawner
 
-var spawn_range:float = 500
+var spawn_range:float = 2000
 var creature_countdown_default:float
 # Will spawn one creature every this many seconds
-var creature_countdown:float = 3
+var creature_countdown:float = 2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +24,6 @@ func _process(delta):
 
 
 func spawn_creature():
-	print ("spawning creature")
 	var scene_instance = load("res://ScenesGeneral/LittleGuys/little_bat.tscn").instantiate()
 	creature_zone.add_child(scene_instance)
 	# I'm bad at math
