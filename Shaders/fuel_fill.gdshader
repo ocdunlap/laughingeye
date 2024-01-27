@@ -27,15 +27,17 @@ void fragment() {
 		// size of inner fill space
 		sdf=length(uv),c=step(sdf,.9),
 		
-        vB=smoothstep(.1,.9,sin(uv.x+(PI*.4))-.3),
-		vBA=vB*sin(TIME*4.)*.1,
+        vB=smoothstep(.1,.9,sin(uv.x+(PI*.4))-.4),
+		// last number is the size of the spash ish
+		vBA=vB*sin(TIME*1.)*.001,
         
         fW=(sin(((TIME*2.)+uv.x)*2.)*.05)+vBA,
 		bW=(sin(((TIME*-2.)+uv.x)*2.+PI)*.05)-vBA,
 		
         fA=(sin(TIME*4.)*.05)*vB,
         
-        fP=fV * 2.3 +(sin((TIME)*PI)*.1) - 1.1,
+		// offset of total "filledness"
+        fP=fV * 2.2 +(sin((TIME)*PI)*.1) - 1.1,
 		
         fF=step(uv.y,(fA+fW)+fP)*c,
 		bF=step(uv.y,(-fA+bW)+fP)*c;

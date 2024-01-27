@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvgnw2mv4qaf8"]
+[gd_scene load_steps=9 format=3 uid="uid://cvgnw2mv4qaf8"]
 
 [ext_resource type="Texture2D" uid="uid://dkv4d4uyqlj4n" path="res://Placeholder/plain-circle.png" id="1_xk7fp"]
+[ext_resource type="Script" path="res://Scripts/FuelMeter.gd" id="2_hgvi0"]
 [ext_resource type="Shader" path="res://Shaders/fuel_fill.gdshader" id="2_op73v"]
 [ext_resource type="Texture2D" uid="uid://bhw6xmsqco32x" path="res://ArtAssets/metalPanel_redCorner.png" id="3_4ivui"]
 [ext_resource type="Texture2D" uid="uid://dae42rs3eqx2k" path="res://ArtAssets/red_button11.png" id="4_j3is1"]
@@ -8,7 +9,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6h1cx"]
 shader = ExtResource("2_op73v")
-shader_parameter/fV = 0.41
+shader_parameter/fV = 0.5
 shader_parameter/tint_color = Color(0.780392, 0.478431, 0.341176, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jujh"]
@@ -55,6 +56,7 @@ anchor_bottom = 1.0
 offset_right = -794.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_hgvi0")
 
 [node name="TextureRect" type="TextureRect" parent="FuelMeter"]
 material = SubResource("ShaderMaterial_6h1cx")
