@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0xgyerjpnhgg"]
+
+[ext_resource type="PackedScene" uid="uid://cqu55w7f4cfsh" path="res://ScenesGeneral/little_guy.tscn" id="1_fk5uy"]
+
+[node name="LittleBat" instance=ExtResource("1_fk5uy")]
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+autoplay = "bat_idle"

@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://cabmyildhncor"]
+
+[ext_resource type="PackedScene" uid="uid://cqu55w7f4cfsh" path="res://ScenesGeneral/little_guy.tscn" id="1_5pwt0"]
+[ext_resource type="Texture2D" uid="uid://btityswhsruhr" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/desert/spr_dreamer_snbd-1.png" id="2_2lsi7"]
+[ext_resource type="Texture2D" uid="uid://bv2yya83wksk8" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/desert/spr_dreamer_snbd-2.png" id="3_4f42g"]
+[ext_resource type="Texture2D" uid="uid://5wc1w1v1dla3" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/desert/spr_dreamer_snbd-3.png" id="4_ob7qa"]
+[ext_resource type="Texture2D" uid="uid://cwr7vgwpqxbsw" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/desert/spr_dreamer_snbd-4.png" id="5_ybuma"]
+[ext_resource type="Texture2D" uid="uid://bljckb5fbukde" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/desert/spr_dreamer_snbd-5.png" id="6_lurhp"]
+[ext_resource type="Texture2D" uid="uid://di7costodfpfk" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/desert/spr_dreamer_snbd-6.png" id="7_3rx6k"]
+[ext_resource type="Texture2D" uid="uid://dgrckrxs7ehmg" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/desert/spr_dreamer_snbd-7.png" id="8_n5uvm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jr7rc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2lsi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4f42g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ob7qa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ybuma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lurhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3rx6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n5uvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LittleBird" instance=ExtResource("1_5pwt0")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_jr7rc")
+animation = &"default"
+autoplay = "default"
+frame_progress = 0.0787317

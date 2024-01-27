@@ -1,0 +1,71 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqu55w7f4cfsh"]
+
+[ext_resource type="Script" path="res://Scripts/little_guy.gd" id="1_q3amn"]
+[ext_resource type="Texture2D" uid="uid://drhw2dxcketp2" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-1.png" id="1_rqg4p"]
+[ext_resource type="Texture2D" uid="uid://4vi3ptuivm2p" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-2.png" id="2_vi34w"]
+[ext_resource type="Texture2D" uid="uid://bvml1ed8wiwu7" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-3.png" id="3_7vu0a"]
+[ext_resource type="Texture2D" uid="uid://b6rd4awb60x2w" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-4.png" id="4_nryth"]
+[ext_resource type="Texture2D" uid="uid://dcxmk16rnf2ww" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-5.png" id="5_fdry2"]
+[ext_resource type="Texture2D" uid="uid://bhqre42h4hqif" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-6.png" id="6_1ttna"]
+[ext_resource type="Texture2D" uid="uid://diu2rnt8vbjee" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-7.png" id="7_uk651"]
+[ext_resource type="Texture2D" uid="uid://ca40d5054wtch" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-8.png" id="8_broda"]
+[ext_resource type="Texture2D" uid="uid://0wkpow2311gn" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-9.png" id="9_xsqry"]
+[ext_resource type="Texture2D" uid="uid://5boj7203tupw" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_rbat-10.png" id="10_q5ia5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ha6tt"]
+radius = 20.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rqg4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vi34w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7vu0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nryth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fdry2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1ttna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uk651")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_broda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xsqry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_q5ia5")
+}],
+"loop": true,
+"name": &"bat_idle",
+"speed": 5.0
+}]
+
+[node name="LittleGuy" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_q3amn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ha6tt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_m6qmd")
+animation = &"bat_idle"
+frame_progress = 0.710515
+speed_scale = 1.2

@@ -20,7 +20,7 @@ uniform float fV;
 uniform vec4 tint_color:source_color = vec4(0.0, 0.5,0.99, 1);
 
 void fragment() {
-	// this is what is causing it to be in the corner but idk how to make fill lol
+	// this is what is causing it to be in the corner but idk 
     vec2 uv = ((UV / -0.10)) + vec2(1.25,1.25);
 
     float

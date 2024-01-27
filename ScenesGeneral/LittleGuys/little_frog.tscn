@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://83a1cux86nth"]
+
+[ext_resource type="PackedScene" uid="uid://cqu55w7f4cfsh" path="res://ScenesGeneral/little_guy.tscn" id="1_myjgk"]
+[ext_resource type="Texture2D" uid="uid://cbslyunuwocqj" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_frgp-1-1.png" id="2_vkubt"]
+[ext_resource type="Texture2D" uid="uid://bxwmdkaq8bwhq" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_frgp-1-2.png" id="3_m70pj"]
+[ext_resource type="Texture2D" uid="uid://dxjogp1omi6ff" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_frgp-1-3.png" id="4_kav04"]
+[ext_resource type="Texture2D" uid="uid://cvn7j26jdieul" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_frgp-1-4.png" id="5_forbr"]
+[ext_resource type="Texture2D" uid="uid://bticsom3mrs4p" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_frgp-1-5.png" id="6_pijyf"]
+[ext_resource type="Texture2D" uid="uid://cohakocshu3sb" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_frgp-1-6.png" id="7_75hxa"]
+[ext_resource type="Texture2D" uid="uid://p8482a5musit" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_frgp-1-7.png" id="8_ckssu"]
+[ext_resource type="Texture2D" uid="uid://cfk73dj64qfkm" path="res://ArtAssets/tinydreamers creature asset pack/tinydreamers creature asset pack/dreamers/cave/spr_dreamer_frgp-1-8.png" id="9_v32dm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ex5wo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vkubt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m70pj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kav04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_forbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pijyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_75hxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ckssu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v32dm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LittleFrog" instance=ExtResource("1_myjgk")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_ex5wo")
+animation = &"default"
+autoplay = "default"
+frame_progress = 0.621071
