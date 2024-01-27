@@ -779,26 +779,106 @@ navigation_polygon = SubResource("NavigationPolygon_uin8r")
 [node name="LittleBat" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
 
 [node name="LittleBat2" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(170, -52)
 
 [node name="LittleBat3" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(46, 0)
 
 [node name="LittleBat4" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-177, -115)
 
 [node name="LittleBat5" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-17, -65)
 
 [node name="LittleBat6" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-39, 81)
 
 [node name="LittleBat7" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
 
 [node name="LittleBat8" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-130, 0)
 
 [node name="LittleBat9" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
 
 [node name="LittleBat10" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-256, 6)
 
 [node name="LittleBat11" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(92, -112)
 
 [node name="LittleBat12" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat13" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(487, -215)
+
+[node name="LittleBat14" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(657, -267)
+
+[node name="LittleBat15" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(533, -215)
+
+[node name="LittleBat16" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(310, -330)
+
+[node name="LittleBat17" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(470, -280)
+
+[node name="LittleBat18" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(448, -134)
+
+[node name="LittleBat19" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(487, -215)
+
+[node name="LittleBat20" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(357, -215)
+
+[node name="LittleBat21" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(487, -215)
+
+[node name="LittleBat22" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(231, -209)
+
+[node name="LittleBat23" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(579, -327)
+
+[node name="LittleBat24" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(487, -215)
+
+[node name="LittleBat25" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-343, 182)
+
+[node name="LittleBat26" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-173, 130)
+
+[node name="LittleBat27" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-297, 182)
+
+[node name="LittleBat28" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-520, 67)
+
+[node name="LittleBat29" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-360, 117)
+
+[node name="LittleBat30" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-382, 263)
+
+[node name="LittleBat31" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-343, 182)
+
+[node name="LittleBat32" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-473, 182)
+
+[node name="LittleBat33" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-343, 182)
+
+[node name="LittleBat34" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-599, 188)
+
+[node name="LittleBat35" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-251, 70)
+
+[node name="LittleBat36" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+position = Vector2(-343, 182)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameWorld"]
 

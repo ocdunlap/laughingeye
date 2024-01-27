@@ -12,7 +12,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print (fill_amount)
 	fill_amount -= change_rate * delta;
 	fill_texture.material.set_shader_parameter("fV", fill_amount)
 	pass
+	
+
+func refill_fuel():
+	fill_amount = 1;
