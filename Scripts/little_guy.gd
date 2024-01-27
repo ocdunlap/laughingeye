@@ -12,15 +12,15 @@ var maxDistance:float = 30
 var target
 var speed:float = 50
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+
+func _ready():
+	navAgent.target_position = random_pos_in_range()
 	pass
 	
 	
 func _physics_process(delta):
 	if timeUntilMove <= 0:
-		print ("moving")
-		navAgent.target_position = position + Vector2(randf_range(minDistance,maxDistance), randf_range(minDistance,maxDistance))
+		navAgent.target_position = random_pos_in_range()
 		timeUntilMove = randf_range(minTimeRange, maxTimeRange)
 	else:
 		timeUntilMove -= delta
@@ -31,3 +31,7 @@ func _physics_process(delta):
 			linear_velocity = position.direction_to(target) * speed
 	
 	pass
+	
+	
+func random_pos_in_range():
+	return position + Vector2(randf_range(minDistance,maxDistance), randf_range(minDistance,maxDistance))

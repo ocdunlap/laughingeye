@@ -792,29 +792,13 @@ layer_0/tile_data = PackedInt32Array(1, 65538, 1, 2, 65538, 1, 65538, 65538, 1, 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="GameWorld/ExploreMain"]
 navigation_polygon = SubResource("NavigationPolygon_uin8r")
 
+[node name="LittleBat" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
 [node name="LittleBat2" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
-lock_rotation = false
 
 [node name="LittleBat3" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
-lock_rotation = false
 
 [node name="LittleBat4" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
-lock_rotation = false
-
-[node name="LittleBat5" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
-lock_rotation = false
-
-[node name="LittleBat6" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
-lock_rotation = false
-
-[node name="LittleBat7" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
-lock_rotation = false
-
-[node name="LittleBat8" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
-lock_rotation = false
-
-[node name="LittleBat9" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
-lock_rotation = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameWorld"]
 
