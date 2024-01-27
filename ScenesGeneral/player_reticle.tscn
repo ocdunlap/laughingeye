@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://jngnashrto5q"]
+[gd_scene load_steps=51 format=3 uid="uid://jngnashrto5q"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerReticle.gd" id="1_qs4w0"]
 [ext_resource type="Texture2D" uid="uid://or5k35us04ku" path="res://ArtAssets/eye-target.png" id="2_1c8ay"]
@@ -329,6 +329,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ko0s"]
 radius = 34.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hbmk"]
+radius = 25.0
+
 [node name="PlayerReticle" type="CharacterBody2D"]
 top_level = true
 z_index = 100
@@ -349,4 +352,13 @@ texture = ExtResource("2_1c8ay")
 visible = false
 shape = SubResource("CircleShape2D_1ko0s")
 
+[node name="ShootRadius" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootRadius"]
+shape = SubResource("CircleShape2D_6hbmk")
+
 [connection signal="animation_finished" from="ExplodeEffect" to="." method="_on_explode_effect_animation_finished"]
+[connection signal="body_entered" from="ShootRadius" to="." method="_on_shoot_radius_body_entered"]
+[connection signal="body_exited" from="ShootRadius" to="." method="_on_shoot_radius_body_exited"]

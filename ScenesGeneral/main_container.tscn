@@ -754,10 +754,12 @@ cell_size = 16.0
 
 [node name="PlayerCamera" type="Node" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="PlayerCamera"]
-zoom = Vector2(2, 2)
-
 [node name="PlayerReticle" parent="PlayerCamera" instance=ExtResource("1_0mxmq")]
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCamera/PlayerReticle"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 
 [node name="GameWorld" type="Node" parent="."]
 
@@ -779,6 +781,22 @@ navigation_polygon = SubResource("NavigationPolygon_uin8r")
 [node name="LittleBat3" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
 
 [node name="LittleBat4" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat5" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat6" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat7" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat8" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat9" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat10" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat11" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
+
+[node name="LittleBat12" parent="GameWorld/ExploreMain/NavigationRegion2D" instance=ExtResource("3_po7fq")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameWorld"]
 

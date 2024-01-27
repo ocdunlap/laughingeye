@@ -7,9 +7,7 @@ extends CharacterBody2D
 
 var target_velocity = Vector2.ZERO
 
-var current_hovered:Node2D
-
-var play_shoot_anim:bool = false
+var current_hovered_bodies:Array = Array()
 
 #func _process(_delta):
 	#if (play_shoot_anim):
@@ -41,11 +39,22 @@ func _physics_process(_delta):
 
 
 func _on_fire_button_button_down():
-	play_shoot_anim = true;
 	explode_effect.play("fire")
+	for i in current_hovered_bodies:
+		i.queue_free()
+	current_hovered_bodies.clear()
 	pass # Replace with function body.
 
 
 func _on_explode_effect_animation_finished():
-	play_shoot_anim = false;
+	pass # Replace with function body.
+
+
+func _on_shoot_radius_body_entered(body):
+	current_hovered_bodies.append(body)
+	pass # Replace with function body.
+
+
+func _on_shoot_radius_body_exited(body):
+	current_hovered_bodies.remove_at(current_hovered_bodies.find(body))
 	pass # Replace with function body.
