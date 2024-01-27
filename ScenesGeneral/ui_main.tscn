@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvgnw2mv4qaf8"]
+
+[ext_resource type="Texture2D" uid="uid://dkv4d4uyqlj4n" path="res://Placeholder/plain-circle.png" id="1_xk7fp"]
+[ext_resource type="Shader" path="res://Shaders/fuel_fill.gdshader" id="2_op73v"]
+[ext_resource type="Texture2D" uid="uid://bhw6xmsqco32x" path="res://ArtAssets/metalPanel_redCorner.png" id="3_4ivui"]
+[ext_resource type="Texture2D" uid="uid://dae42rs3eqx2k" path="res://ArtAssets/red_button11.png" id="4_j3is1"]
+[ext_resource type="Texture2D" uid="uid://btsvirjrt457k" path="res://ArtAssets/red_button12.png" id="5_mprq2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6h1cx"]
+shader = ExtResource("2_op73v")
+shader_parameter/fV = 0.41
+shader_parameter/tint_color = Color(0.780392, 0.478431, 0.341176, 1)
+
+[node name="UIMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Watcher" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 180.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Watcher"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = 36.0
+offset_right = -37.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xk7fp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FuelMeter" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -794.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="FuelMeter"]
+material = SubResource("ShaderMaterial_6h1cx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xk7fp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BottomPanel" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 925.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("3_4ivui")
+region_rect = Rect2(14.0556, 32.8383, 30.4043, 52.5658)
+
+[node name="CenterContainer" type="CenterContainer" parent="BottomPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FireButton" type="TextureButton" parent="BottomPanel/CenterContainer"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+texture_normal = ExtResource("4_j3is1")
+texture_pressed = ExtResource("5_mprq2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="BottomPanel/CenterContainer/FireButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center]FIRE[/center]"
+fit_content = true

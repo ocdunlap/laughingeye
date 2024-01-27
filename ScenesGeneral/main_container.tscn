@@ -1,14 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c28078icgk7kq"]
+[gd_scene load_steps=8 format=3 uid="uid://c28078icgk7kq"]
 
-[ext_resource type="Texture2D" uid="uid://dkv4d4uyqlj4n" path="res://Placeholder/plain-circle.png" id="1_6fsx6"]
+[ext_resource type="PackedScene" uid="uid://jngnashrto5q" path="res://ScenesGeneral/player_reticle.tscn" id="1_0mxmq"]
 [ext_resource type="Texture2D" uid="uid://cuambwoccgynl" path="res://ArtAssets/SimpleTileset/tileset and some textures/foresttileset.png" id="1_bdv7x"]
-[ext_resource type="Script" path="res://Scripts/PlayerReticle.gd" id="1_e2yhj"]
-[ext_resource type="Texture2D" uid="uid://or5k35us04ku" path="res://ArtAssets/eye-target.png" id="1_fuvfr"]
-[ext_resource type="Shader" path="res://Shaders/fuel_fill.gdshader" id="2_k22s5"]
 [ext_resource type="PackedScene" uid="uid://c0xgyerjpnhgg" path="res://ScenesGeneral/LittleGuys/little_bat.tscn" id="3_po7fq"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1ko0s"]
-radius = 34.0
+[ext_resource type="PackedScene" uid="uid://cvgnw2mv4qaf8" path="res://ScenesGeneral/ui_main.tscn" id="5_a7odk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32dr8"]
 texture = ExtResource("1_bdv7x")
@@ -753,11 +748,6 @@ parsed_geometry_type = 1
 source_geometry_group_name = &"navigation_polygon_source_group"
 cell_size = 16.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6h1cx"]
-shader = ExtResource("2_k22s5")
-shader_parameter/fV = 0.41
-shader_parameter/tint_color = Color(0.780392, 0.478431, 0.341176, 1)
-
 [node name="MainContainer" type="Node"]
 
 [node name="SoundController" type="Node" parent="."]
@@ -767,17 +757,7 @@ shader_parameter/tint_color = Color(0.780392, 0.478431, 0.341176, 1)
 [node name="Camera2D" type="Camera2D" parent="PlayerCamera"]
 zoom = Vector2(2, 2)
 
-[node name="PlayerReticle" type="CharacterBody2D" parent="PlayerCamera"]
-top_level = true
-z_index = 100
-script = ExtResource("1_e2yhj")
-
-[node name="Sprite2D" type="Sprite2D" parent="PlayerCamera/PlayerReticle"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_fuvfr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCamera/PlayerReticle"]
-shape = SubResource("CircleShape2D_1ko0s")
+[node name="PlayerReticle" parent="PlayerCamera" instance=ExtResource("1_0mxmq")]
 
 [node name="GameWorld" type="Node" parent="."]
 
@@ -802,51 +782,8 @@ navigation_polygon = SubResource("NavigationPolygon_uin8r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameWorld"]
 
-[node name="UIMain" type="Control" parent="GameWorld/CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UIMain" parent="GameWorld/CanvasLayer" instance=ExtResource("5_a7odk")]
 
-[node name="Watcher" type="Control" parent="GameWorld/CanvasLayer/UIMain"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -200.0
-offset_bottom = 180.0
-grow_horizontal = 0
+[connection signal="button_down" from="GameWorld/CanvasLayer/UIMain/BottomPanel/CenterContainer/FireButton" to="PlayerCamera/PlayerReticle" method="_on_fire_button_button_down"]
 
-[node name="TextureRect" type="TextureRect" parent="GameWorld/CanvasLayer/UIMain/Watcher"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_6fsx6")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="FuelMeter" type="Control" parent="GameWorld/CanvasLayer/UIMain"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -475.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="GameWorld/CanvasLayer/UIMain/FuelMeter"]
-material = SubResource("ShaderMaterial_6h1cx")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_6fsx6")
-expand_mode = 1
-stretch_mode = 5
+[editable path="GameWorld/CanvasLayer/UIMain"]

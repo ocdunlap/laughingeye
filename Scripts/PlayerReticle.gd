@@ -1,9 +1,22 @@
 extends CharacterBody2D
 
-# How fast the player moves in meters per second.
+@onready var explode_effect:AnimatedSprite2D = $ExplodeEffect
+
+# How fast the player moves
 @export var speed = 180
 
 var target_velocity = Vector2.ZERO
+
+var current_hovered:Node2D
+
+var play_shoot_anim:bool = false
+
+#func _process(_delta):
+	#if (play_shoot_anim):
+		#explode_effect.play("fire")
+	#else:
+		#explode_effect.stop()
+	#pass
 
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
@@ -25,3 +38,14 @@ func _physics_process(_delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+
+
+func _on_fire_button_button_down():
+	play_shoot_anim = true;
+	explode_effect.play("fire")
+	pass # Replace with function body.
+
+
+func _on_explode_effect_animation_finished():
+	play_shoot_anim = false;
+	pass # Replace with function body.
