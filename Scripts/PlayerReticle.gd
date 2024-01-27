@@ -5,6 +5,8 @@ extends CharacterBody2D
 # How fast the player moves
 @export var speed = 180
 
+signal update_quota(amount:int)
+
 var target_velocity = Vector2.ZERO
 
 var current_hovered_bodies:Array = Array()
@@ -42,6 +44,8 @@ func _on_fire_button_button_down():
 	explode_effect.play("fire")
 	for i in current_hovered_bodies:
 		i.queue_free()
+	# later should connect manually
+	emit_signal("update_quota", current_hovered_bodies.size())
 	current_hovered_bodies.clear()
 	pass # Replace with function body.
 

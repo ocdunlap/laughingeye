@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c28078icgk7kq"]
+[gd_scene load_steps=9 format=3 uid="uid://c28078icgk7kq"]
 
 [ext_resource type="PackedScene" uid="uid://jngnashrto5q" path="res://ScenesGeneral/player_reticle.tscn" id="1_0mxmq"]
 [ext_resource type="Texture2D" uid="uid://cuambwoccgynl" path="res://ArtAssets/SimpleTileset/tileset and some textures/foresttileset.png" id="1_bdv7x"]
+[ext_resource type="Script" path="res://Scripts/GameWorld.gd" id="2_hkw1s"]
 [ext_resource type="PackedScene" uid="uid://c0xgyerjpnhgg" path="res://ScenesGeneral/LittleGuys/little_bat.tscn" id="3_po7fq"]
 [ext_resource type="PackedScene" uid="uid://cvgnw2mv4qaf8" path="res://ScenesGeneral/ui_main.tscn" id="5_a7odk"]
 
@@ -762,6 +763,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="GameWorld" type="Node" parent="."]
+script = ExtResource("2_hkw1s")
 
 [node name="ExploreMain" type="Node2D" parent="GameWorld"]
 
@@ -802,6 +804,11 @@ navigation_polygon = SubResource("NavigationPolygon_uin8r")
 
 [node name="UIMain" parent="GameWorld/CanvasLayer" instance=ExtResource("5_a7odk")]
 
+[node name="Label" type="Label" parent="GameWorld/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="update_quota" from="PlayerCamera/PlayerReticle" to="GameWorld" method="_on_player_reticle_update_quota"]
 [connection signal="button_down" from="GameWorld/CanvasLayer/UIMain/BottomPanel/CenterContainer/FireButton" to="PlayerCamera/PlayerReticle" method="_on_fire_button_button_down"]
 
 [editable path="GameWorld/CanvasLayer/UIMain"]
