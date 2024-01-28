@@ -41,6 +41,9 @@ func _process(delta):
 func say_bark():
 	# Set text
 	barks_label.text = barks_list.pick_random()
+	
+	# Play animation
+	anim_player.play("eye-glitch-1")
 
 	# Set timer, then clear
 	var timer = get_tree().create_timer(bark_keep_open)

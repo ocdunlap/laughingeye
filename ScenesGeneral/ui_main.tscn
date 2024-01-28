@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvgnw2mv4qaf8"]
+[gd_scene load_steps=19 format=3 uid="uid://cvgnw2mv4qaf8"]
 
 [ext_resource type="Script" path="res://Scripts/FuelMeter.gd" id="2_hgvi0"]
 [ext_resource type="Shader" path="res://Shaders/fuel_fill.gdshader" id="2_op73v"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://btsvirjrt457k" path="res://ArtAssets/red_button12.png" id="5_mprq2"]
 [ext_resource type="Texture2D" uid="uid://b0rv8pjuualm1" path="res://ArtAssets/Watcher.png" id="7_45bdf"]
 [ext_resource type="Script" path="res://Scripts/Watcher.gd" id="7_673rv"]
+[ext_resource type="Material" uid="uid://c1ls8jy24b61" path="res://Shaders/cartridge_glitch.tres" id="8_co0wd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6h1cx"]
 shader = ExtResource("2_op73v")
@@ -50,8 +51,137 @@ tracks/0/keys = {
 "values": [Vector2(240, 100), Vector2(260, 70), Vector2(240, 100), Vector2(240, 100), Vector2(180, 70), Vector2(240, 100), Vector2(230, 100), Vector2(195, 117), Vector2(180, 100), Vector2(200, 110), Vector2(180, 100), Vector2(180, 100), Vector2(240, 100)]
 }
 
+[sub_resource type="Animation" id="Animation_l2xu1"]
+resource_name = "eye-glitch-1"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WatcherFrame:material:shader_parameter/red_displacement")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [4.75e-08, 0.00600005, 4.75e-08, 0.522, 0.522, 0.522, 0.522, 4.75e-08]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WatcherFrame:material:shader_parameter/green_displacement")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.25, 0.41, 4.75e-08, 0.457, 0.457, 0.457, 0.25]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WatcherFrame:material:shader_parameter/blue_displacement")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-1.0, -0.543, -0.675, 5.96046e-08, 5.96046e-08, 4.75e-08, -0.765, -1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WatcherFrame:material:shader_parameter/ghost")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.225, 0.0, 0.505, 0.0, 0.0, 0.505, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WatcherFrame:material:shader_parameter/scan_effect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2, 0.0, 0.52, 0.52, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7tle5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WatcherFrame:material:shader_parameter/red_displacement")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.00600005]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WatcherFrame:material:shader_parameter/green_displacement")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.41]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WatcherFrame:material:shader_parameter/blue_displacement")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.543]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WatcherFrame:material:shader_parameter/ghost")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.225]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WatcherFrame:material:shader_parameter/scan_effect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_83px3"]
 _data = {
+"RESET": SubResource("Animation_7tle5"),
+"eye-glitch-1": SubResource("Animation_l2xu1"),
 "eye-wander-1": SubResource("Animation_5upjb"),
 "eye-wander-2": SubResource("Animation_jjsuv")
 }
@@ -61,6 +191,9 @@ bg_color = Color(0.819608, 0.933333, 0.968627, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tui0h"]
 font_size = 24
+font_color = Color(0.819608, 0.933333, 0.968627, 1)
+shadow_size = 5
+shadow_color = Color(0.890196, 0.482353, 0.0352941, 1)
 
 [node name="UIMain" type="Control"]
 layout_mode = 3
@@ -212,23 +345,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xn2vx")
 
 [node name="Pupil" type="TextureRect" parent="Watcher"]
 modulate = Color(0.890196, 0.482353, 0.0352941, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.375
-anchor_top = 0.359
-anchor_right = 0.581
-anchor_bottom = 0.518
-offset_left = -20.25
-offset_top = -101.04
-offset_right = 38.6461
-offset_bottom = -134.636
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 240.0
+offset_top = 100.0
+offset_right = 441.86
+offset_bottom = 155.444
 texture = ExtResource("3_o12e0")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="WatcherFrame" type="TextureRect" parent="Watcher"]
+material = ExtResource("8_co0wd")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -246,7 +373,7 @@ stretch_mode = 5
 [node name="Barks" type="Label" parent="Watcher"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.051
+anchor_top = 0.09
 anchor_bottom = 0.442
 offset_left = -116.0
 offset_bottom = 34.0
