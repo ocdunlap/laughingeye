@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ty4ixxpm2dhc"
+path="res://.godot/imported/719548__scottyd0es__tone12_msg_notification_4 (1).wav-ee2c524c1c310a109c359ea657e2bdb3.sample"
+
+[deps]
+
+source_file="res://Sound/719548__scottyd0es__tone12_msg_notification_4 (1).wav"
+dest_files=["res://.godot/imported/719548__scottyd0es__tone12_msg_notification_4 (1).wav-ee2c524c1c310a109c359ea657e2bdb3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

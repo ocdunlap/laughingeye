@@ -1,9 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://c28078icgk7kq"]
+[gd_scene load_steps=19 format=3 uid="uid://c28078icgk7kq"]
 
 [ext_resource type="PackedScene" uid="uid://jngnashrto5q" path="res://ScenesGeneral/player_reticle.tscn" id="1_0mxmq"]
+[ext_resource type="AudioStream" uid="uid://d2642jkb0pg6h" path="res://Sound/511493__the_toothpaste_vampires__ambient-space-noise-1-30bpm-6m-24s.wav" id="1_6v0qf"]
+[ext_resource type="Script" path="res://Scripts/SoundController.gd" id="1_60gkx"]
 [ext_resource type="Texture2D" uid="uid://cuambwoccgynl" path="res://ArtAssets/SimpleTileset/tileset and some textures/foresttileset.png" id="1_bdv7x"]
 [ext_resource type="Script" path="res://Scripts/GameWorld.gd" id="2_hkw1s"]
+[ext_resource type="AudioStream" uid="uid://ty4ixxpm2dhc" path="res://Sound/719548__scottyd0es__tone12_msg_notification_4 (1).wav" id="2_yf3w8"]
 [ext_resource type="Script" path="res://Scripts/ExploreMain.gd" id="3_fpsoa"]
+[ext_resource type="AudioStream" uid="uid://c5k6r7sdvund2" path="res://Sound/157609__qubodup__hollow-bang.wav" id="3_fs81p"]
 [ext_resource type="PackedScene" uid="uid://c0xgyerjpnhgg" path="res://ScenesGeneral/LittleGuys/little_bat.tscn" id="3_po7fq"]
 [ext_resource type="PackedScene" uid="uid://cvgnw2mv4qaf8" path="res://ScenesGeneral/ui_main.tscn" id="5_a7odk"]
 [ext_resource type="Texture2D" uid="uid://bwmb0cnxmsk6g" path="res://ArtAssets/spaceship_texture_hull_02_by_tiagocomicart_d8slqvg-fullview.jpg" id="7_xpkry"]
@@ -765,6 +769,18 @@ shadow_color = Color(0.890196, 0.482353, 0.0352941, 1)
 [node name="MainContainer" type="Node"]
 
 [node name="SoundController" type="Node" parent="."]
+script = ExtResource("1_60gkx")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="SoundController"]
+stream = ExtResource("1_6v0qf")
+volume_db = 10.0
+autoplay = true
+
+[node name="GlitchSFX" type="AudioStreamPlayer2D" parent="SoundController"]
+stream = ExtResource("2_yf3w8")
+
+[node name="ShootSFX" type="AudioStreamPlayer2D" parent="SoundController"]
+stream = ExtResource("3_fs81p")
 
 [node name="PlayerCamera" type="Node" parent="."]
 
@@ -1008,7 +1024,9 @@ fit_content = true
 
 [connection signal="update_quota" from="PlayerCamera/PlayerReticle" to="GameWorld" method="_on_player_reticle_update_quota"]
 [connection signal="game_over" from="GameWorld" to="PlayerCamera/PlayerReticle" method="_on_game_world_game_over"]
+[connection signal="quota_met" from="GameWorld" to="SoundController" method="_on_game_world_quota_met"]
 [connection signal="fuel_empty" from="GameWorld/CanvasLayer/UIMain/FuelMeter" to="GameWorld" method="_on_fuel_meter_fuel_empty"]
+[connection signal="button_down" from="GameWorld/CanvasLayer/UIMain/BottomPanel/CenterContainer/FireButton" to="SoundController" method="_on_fire_button_button_down"]
 [connection signal="button_down" from="GameWorld/CanvasLayer/UIMain/BottomPanel/CenterContainer/FireButton" to="PlayerCamera/PlayerReticle" method="_on_fire_button_button_down"]
 [connection signal="button_down" from="GameWorld/CanvasLayer/GameOverMenu/VBoxContainer/Retry Button" to="GameWorld" method="_on_retry_button_button_down"]
 [connection signal="button_down" from="GameWorld/CanvasLayer/GameOverMenu/VBoxContainer/QuitButton" to="GameWorld" method="_on_quit_button_button_down"]

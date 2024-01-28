@@ -8,7 +8,6 @@ extends CharacterBody2D
 signal update_quota(amount:int)
 
 var target_velocity = Vector2.ZERO
-
 var current_hovered_bodies:Array = Array()
 
 func _physics_process(_delta):

@@ -6,6 +6,7 @@ extends Node
 @onready var game_over_menu = $CanvasLayer/GameOverMenu
 
 signal game_over()
+signal quota_met()
 
 var current_quota:int = 20
 var current_count:int = 0
@@ -26,6 +27,7 @@ func _on_player_reticle_update_quota(amount):
 		current_count = 0
 		fuel_meter.refill_fuel()
 		watcher.say_bark()
+		emit_signal("quota_met")
 	quota_text.text = str(current_count) + "/" + str(current_quota)
 
 
