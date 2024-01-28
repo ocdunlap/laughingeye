@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvgnw2mv4qaf8"]
+[gd_scene load_steps=16 format=3 uid="uid://cvgnw2mv4qaf8"]
 
 [ext_resource type="Script" path="res://Scripts/FuelMeter.gd" id="2_hgvi0"]
 [ext_resource type="Shader" path="res://Shaders/fuel_fill.gdshader" id="2_op73v"]
@@ -7,18 +7,60 @@
 [ext_resource type="Texture2D" uid="uid://dae42rs3eqx2k" path="res://ArtAssets/red_button11.png" id="4_j3is1"]
 [ext_resource type="Texture2D" uid="uid://btsvirjrt457k" path="res://ArtAssets/red_button12.png" id="5_mprq2"]
 [ext_resource type="Texture2D" uid="uid://b0rv8pjuualm1" path="res://ArtAssets/Watcher.png" id="7_45bdf"]
+[ext_resource type="Script" path="res://Scripts/Watcher.gd" id="7_673rv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6h1cx"]
 shader = ExtResource("2_op73v")
 shader_parameter/fV = 0.5
-shader_parameter/tint_color = Color(0.780392, 0.478431, 0.341176, 1)
+shader_parameter/tint_color = Color(0.890196, 0.482353, 0.0352941, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jujh"]
 font_size = 22
 font_color = Color(0.890196, 0.482353, 0.0352941, 1)
 
+[sub_resource type="Animation" id="Animation_5upjb"]
+resource_name = "eye-wander-1"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1.3, 1.7, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(240, 100), Vector2(230, 100), Vector2(195, 117), Vector2(180, 100), Vector2(200, 110), Vector2(180, 100), Vector2(180, 100), Vector2(240, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_jjsuv"]
+resource_name = "eye-wander-2"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 2.8, 3, 3.7, 3.9, 4.1, 4.3, 5.1, 5.4, 7.3, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(240, 100), Vector2(260, 70), Vector2(240, 100), Vector2(240, 100), Vector2(180, 70), Vector2(240, 100), Vector2(230, 100), Vector2(195, 117), Vector2(180, 100), Vector2(200, 110), Vector2(180, 100), Vector2(180, 100), Vector2(240, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83px3"]
+_data = {
+"eye-wander-1": SubResource("Animation_5upjb"),
+"eye-wander-2": SubResource("Animation_jjsuv")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn2vx"]
 bg_color = Color(0.819608, 0.933333, 0.968627, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tui0h"]
+font_size = 24
 
 [node name="UIMain" type="Control"]
 layout_mode = 3
@@ -143,10 +185,15 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -591.0
-offset_top = -134.0
 offset_right = 103.0
-offset_bottom = 426.0
+offset_bottom = 560.0
 grow_horizontal = 0
+script = ExtResource("7_673rv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Watcher"]
+libraries = {
+"": SubResource("AnimationLibrary_83px3")
+}
 
 [node name="Panel" type="Panel" parent="Watcher"]
 layout_mode = 1
@@ -155,11 +202,15 @@ anchor_left = 0.267
 anchor_top = 0.369
 anchor_right = 0.724
 anchor_bottom = 0.555
+offset_left = 3.0
+offset_top = -132.0
+offset_right = 3.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xn2vx")
 
-[node name="TextureRect" type="TextureRect" parent="Watcher"]
+[node name="Pupil" type="TextureRect" parent="Watcher"]
 modulate = Color(0.890196, 0.482353, 0.0352941, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -167,10 +218,10 @@ anchor_left = 0.375
 anchor_top = 0.359
 anchor_right = 0.581
 anchor_bottom = 0.518
-offset_left = -21.108
-offset_top = 30.6
-offset_right = 37.7862
-offset_bottom = -3.0
+offset_left = -20.25
+offset_top = -101.04
+offset_right = 38.6461
+offset_bottom = -134.636
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_o12e0")
@@ -182,8 +233,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -132.0
+offset_right = 3.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_45bdf")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Barks" type="Label" parent="Watcher"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.051
+anchor_bottom = 0.442
+offset_left = -116.0
+offset_bottom = 34.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_tui0h")
+horizontal_alignment = 2

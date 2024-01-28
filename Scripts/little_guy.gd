@@ -6,8 +6,8 @@ var timeUntilMove:float = 0
 var minTimeRange:float = 1
 var maxTimeRange:float = 8
 
-var minDistance:float = -30
-var maxDistance:float = 30
+var minDistance:float = -50
+var maxDistance:float = 50
 
 var target
 var speed:float = 50
