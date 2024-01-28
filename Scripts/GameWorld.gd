@@ -4,6 +4,7 @@ extends Node
 @onready var fuel_meter = $CanvasLayer/UIMain/FuelMeter
 @onready var watcher = $CanvasLayer/UIMain/Watcher
 @onready var game_over_menu = $CanvasLayer/GameOverMenu
+@onready var intro_menu = $CanvasLayer/IntroMenu
 
 signal game_over()
 signal quota_met()
@@ -13,6 +14,7 @@ var current_count:int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().paused = true
 	pass # Replace with function body.
 	
 func _process(_delta):
@@ -44,3 +46,9 @@ func _on_fuel_meter_fuel_empty():
 	#emit_signal("game_over")
 	game_over_menu.visible = true
 	get_tree().paused = true
+
+
+func _on_start_button_button_down():
+	get_tree().paused = false
+	intro_menu.visible = false
+

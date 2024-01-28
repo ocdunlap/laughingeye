@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cvgnw2mv4qaf8"]
+[gd_scene load_steps=29 format=3 uid="uid://cvgnw2mv4qaf8"]
 
 [ext_resource type="Shader" path="res://Shaders/hologram.gdshader" id="1_a7afu"]
 [ext_resource type="Script" path="res://Scripts/FuelMeter.gd" id="2_hgvi0"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b0rv8pjuualm1" path="res://ArtAssets/Watcher.png" id="7_45bdf"]
 [ext_resource type="Script" path="res://Scripts/Watcher.gd" id="7_673rv"]
 [ext_resource type="Material" uid="uid://c1ls8jy24b61" path="res://Shaders/cartridge_glitch.tres" id="8_co0wd"]
+[ext_resource type="Texture2D" uid="uid://dd1qbhe5p77m6" path="res://ArtAssets/leafs-pair.png" id="14_2j2rx"]
+[ext_resource type="FontFile" uid="uid://d1xclcs65ecsi" path="res://Font/CuteFont-Regular.ttf" id="15_f321l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_alsi5"]
 shader = ExtResource("1_a7afu")
@@ -28,14 +30,15 @@ shader_parameter/hologramTexture = ExtResource("2_saof6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6h1cx"]
 shader = ExtResource("2_op73v")
-shader_parameter/fV = 0.5
+shader_parameter/fV = 1.0
 shader_parameter/tint_color = Color(0.890196, 0.482353, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mryt"]
 bg_color = Color(0.819608, 0.933333, 0.968627, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jujh"]
-font_size = 22
+font = ExtResource("15_f321l")
+font_size = 48
 font_color = Color(0.890196, 0.482353, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8lrn"]
@@ -212,7 +215,8 @@ _data = {
 bg_color = Color(0.819608, 0.933333, 0.968627, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tui0h"]
-font_size = 24
+font = ExtResource("15_f321l")
+font_size = 48
 font_color = Color(0.819608, 0.933333, 0.968627, 1)
 shadow_size = 5
 shadow_color = Color(0.890196, 0.482353, 0.0352941, 1)
@@ -226,6 +230,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Screen" type="Panel" parent="."]
+z_index = -2
 material = SubResource("ShaderMaterial_alsi5")
 layout_mode = 1
 anchors_preset = 15
@@ -274,7 +279,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7mryt")
@@ -327,9 +331,10 @@ vertical_alignment = 1
 modulate = Color(0.890196, 0.482353, 0.0352941, 1)
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("15_f321l")
+theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "[center][font_size=32
-]QUOTA[/font_size][/center]"
+text = "[center]QUOTA[/center]"
 
 [node name="QuotaAmount" type="Label" parent="RightPanel/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -395,6 +400,8 @@ offset_top = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("15_f321l")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]FIRE[/center]"
 fit_content = true
@@ -454,6 +461,18 @@ offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_45bdf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Extra Leafs" type="TextureRect" parent="Watcher/WatcherFrame"]
+z_index = -1
+material = ExtResource("8_co0wd")
+layout_mode = 0
+offset_left = -1414.0
+offset_top = 850.0
+offset_right = -1114.0
+offset_bottom = 1150.0
+texture = ExtResource("14_2j2rx")
 expand_mode = 1
 stretch_mode = 5
 
