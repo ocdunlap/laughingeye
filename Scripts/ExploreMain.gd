@@ -35,3 +35,5 @@ func spawn_creature():
 	if rand_y > 0: rand_y += 200
 	scene_instance.global_position = Vector2(rand_x, rand_y)
 	pass
+
+

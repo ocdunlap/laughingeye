@@ -11,13 +11,6 @@ var target_velocity = Vector2.ZERO
 
 var current_hovered_bodies:Array = Array()
 
-#func _process(_delta):
-	#if (play_shoot_anim):
-		#explode_effect.play("fire")
-	#else:
-		#explode_effect.stop()
-	#pass
-
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
 
@@ -62,3 +55,12 @@ func _on_shoot_radius_body_entered(body):
 func _on_shoot_radius_body_exited(body):
 	current_hovered_bodies.remove_at(current_hovered_bodies.find(body))
 	pass # Replace with function body.
+
+
+func _on_game_world_game_over():
+	# stop physics (input)
+	set_physics_process (false)
+	# stop receiving signals
+	var conns = get_incoming_connections()
+	for cur_conn in conns:
+		cur_conn.source.disconnect(cur_conn.signal_name, self, cur_conn.method_name)
