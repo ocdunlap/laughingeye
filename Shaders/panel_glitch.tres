@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cxtwk1343n8mk"]
+
+[ext_resource type="Shader" path="res://Shaders/cartridge_glitch.gdshader" id="1_x7r41"]
+
+[resource]
+shader = ExtResource("1_x7r41")
+shader_parameter/red_displacement = 0.57
+shader_parameter/green_displacement = -0.205
+shader_parameter/blue_displacement = 0.405
+shader_parameter/ghost = 0.055
+shader_parameter/intensity = 0.499
+shader_parameter/scan_effect = 0.255
+shader_parameter/distortion_effect = 0.445
+shader_parameter/negative_effect = 0.0

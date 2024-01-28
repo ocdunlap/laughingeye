@@ -4,11 +4,11 @@
 
 [resource]
 shader = ExtResource("1_xl6wi")
-shader_parameter/red_displacement = 0.00600005
-shader_parameter/green_displacement = 0.41
-shader_parameter/blue_displacement = -0.543
-shader_parameter/ghost = 0.225
+shader_parameter/red_displacement = 4.74975e-08
+shader_parameter/green_displacement = 0.25
+shader_parameter/blue_displacement = -1.0
+shader_parameter/ghost = 0.0
 shader_parameter/intensity = 0.0
-shader_parameter/scan_effect = 0.2
+shader_parameter/scan_effect = 0.0
 shader_parameter/distortion_effect = 0.0
 shader_parameter/negative_effect = 0.0

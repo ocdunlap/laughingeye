@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cvgnw2mv4qaf8"]
+[gd_scene load_steps=27 format=3 uid="uid://cvgnw2mv4qaf8"]
 
 [ext_resource type="Shader" path="res://Shaders/hologram.gdshader" id="1_a7afu"]
 [ext_resource type="Script" path="res://Scripts/FuelMeter.gd" id="2_hgvi0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dae42rs3eqx2k" path="res://ArtAssets/red_button11.png" id="4_j3is1"]
 [ext_resource type="Texture2D" uid="uid://bwmb0cnxmsk6g" path="res://ArtAssets/spaceship_texture_hull_02_by_tiagocomicart_d8slqvg-fullview.jpg" id="4_nqav2"]
 [ext_resource type="Texture2D" uid="uid://btsvirjrt457k" path="res://ArtAssets/red_button12.png" id="5_mprq2"]
+[ext_resource type="Material" uid="uid://cxtwk1343n8mk" path="res://Shaders/panel_glitch.tres" id="6_65ilt"]
 [ext_resource type="Texture2D" uid="uid://b0rv8pjuualm1" path="res://ArtAssets/Watcher.png" id="7_45bdf"]
 [ext_resource type="Script" path="res://Scripts/Watcher.gd" id="7_673rv"]
 [ext_resource type="Material" uid="uid://c1ls8jy24b61" path="res://Shaders/cartridge_glitch.tres" id="8_co0wd"]
@@ -268,6 +269,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="border" type="Panel" parent="RightPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -279,6 +281,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7mryt")
 
 [node name="TextureRect" type="TextureRect" parent="RightPanel"]
 modulate = Color(0.819608, 0.933333, 0.666667, 1)
+material = ExtResource("6_65ilt")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -344,6 +347,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect2" type="Panel" parent="BottomPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -355,6 +359,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_w8lrn")
 
 [node name="TextureRect" type="TextureRect" parent="BottomPanel"]
 modulate = Color(0.819608, 0.933333, 0.666667, 1)
+material = ExtResource("6_65ilt")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

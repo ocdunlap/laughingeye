@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c28078icgk7kq"]
+[gd_scene load_steps=20 format=3 uid="uid://c28078icgk7kq"]
 
 [ext_resource type="PackedScene" uid="uid://jngnashrto5q" path="res://ScenesGeneral/player_reticle.tscn" id="1_0mxmq"]
 [ext_resource type="AudioStream" uid="uid://d2642jkb0pg6h" path="res://Sound/511493__the_toothpaste_vampires__ambient-space-noise-1-30bpm-6m-24s.wav" id="1_6v0qf"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bwmb0cnxmsk6g" path="res://ArtAssets/spaceship_texture_hull_02_by_tiagocomicart_d8slqvg-fullview.jpg" id="7_xpkry"]
 [ext_resource type="Texture2D" uid="uid://dae42rs3eqx2k" path="res://ArtAssets/red_button11.png" id="8_8kxy8"]
 [ext_resource type="Texture2D" uid="uid://btsvirjrt457k" path="res://ArtAssets/red_button12.png" id="9_rtais"]
+[ext_resource type="Material" uid="uid://cxtwk1343n8mk" path="res://Shaders/panel_glitch.tres" id="11_apvjo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32dr8"]
 texture = ExtResource("1_bdv7x")
@@ -921,6 +922,12 @@ position = Vector2(-343, 182)
 
 [node name="UIMain" parent="GameWorld/CanvasLayer" instance=ExtResource("5_a7odk")]
 
+[node name="border" parent="GameWorld/CanvasLayer/UIMain/RightPanel" index="0"]
+visible = true
+
+[node name="TextureRect2" parent="GameWorld/CanvasLayer/UIMain/BottomPanel" index="0"]
+visible = true
+
 [node name="GameOverMenu" type="Control" parent="GameWorld/CanvasLayer"]
 process_mode = 3
 visible = false
@@ -943,6 +950,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_15ya5")
 
 [node name="TextureRect" type="TextureRect" parent="GameWorld/CanvasLayer/GameOverMenu"]
 modulate = Color(0.819608, 0.933333, 0.666667, 1)
+material = ExtResource("11_apvjo")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.015
