@@ -1,54 +1,106 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvgnw2mv4qaf8"]
+[gd_scene load_steps=26 format=3 uid="uid://cvgnw2mv4qaf8"]
 
+[ext_resource type="Shader" path="res://Shaders/hologram.gdshader" id="1_a7afu"]
 [ext_resource type="Script" path="res://Scripts/FuelMeter.gd" id="2_hgvi0"]
 [ext_resource type="Shader" path="res://Shaders/fuel_fill.gdshader" id="2_op73v"]
+[ext_resource type="Texture2D" uid="uid://damyd2had7pjq" path="res://ArtAssets/hologram_lines-b1399a8d.png" id="2_saof6"]
 [ext_resource type="Texture2D" uid="uid://bhw6xmsqco32x" path="res://ArtAssets/metalPanel_redCorner.png" id="3_4ivui"]
 [ext_resource type="Texture2D" uid="uid://dkv4d4uyqlj4n" path="res://ArtAssets/plain-circle.png" id="3_o12e0"]
 [ext_resource type="Texture2D" uid="uid://dae42rs3eqx2k" path="res://ArtAssets/red_button11.png" id="4_j3is1"]
+[ext_resource type="Texture2D" uid="uid://bwmb0cnxmsk6g" path="res://ArtAssets/spaceship_texture_hull_02_by_tiagocomicart_d8slqvg-fullview.jpg" id="4_nqav2"]
 [ext_resource type="Texture2D" uid="uid://btsvirjrt457k" path="res://ArtAssets/red_button12.png" id="5_mprq2"]
 [ext_resource type="Texture2D" uid="uid://b0rv8pjuualm1" path="res://ArtAssets/Watcher.png" id="7_45bdf"]
 [ext_resource type="Script" path="res://Scripts/Watcher.gd" id="7_673rv"]
 [ext_resource type="Material" uid="uid://c1ls8jy24b61" path="res://Shaders/cartridge_glitch.tres" id="8_co0wd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_alsi5"]
+shader = ExtResource("1_a7afu")
+shader_parameter/baseColor = Color(0.305882, 0.835294, 0.960784, 0.184314)
+shader_parameter/speed = 0.5
+shader_parameter/linesColor = Color(0.631373, 0.909804, 0.556863, 0.0588235)
+shader_parameter/linesColorIntensity = 5.0
+shader_parameter/hologramTextureTiling = Vector2(1, 5)
+shader_parameter/alphaScale = 0.1
+shader_parameter/hologramTexture = ExtResource("2_saof6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tgsy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6h1cx"]
 shader = ExtResource("2_op73v")
 shader_parameter/fV = 0.5
 shader_parameter/tint_color = Color(0.890196, 0.482353, 0.0352941, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mryt"]
+bg_color = Color(0.819608, 0.933333, 0.968627, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_0jujh"]
 font_size = 22
 font_color = Color(0.890196, 0.482353, 0.0352941, 1)
 
-[sub_resource type="Animation" id="Animation_5upjb"]
-resource_name = "eye-wander-1"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pupil:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1.3, 1.7, 4.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(240, 100), Vector2(230, 100), Vector2(195, 117), Vector2(180, 100), Vector2(200, 110), Vector2(180, 100), Vector2(180, 100), Vector2(240, 100)]
-}
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8lrn"]
+bg_color = Color(0.819608, 0.933333, 0.968627, 1)
 
-[sub_resource type="Animation" id="Animation_jjsuv"]
-resource_name = "eye-wander-2"
-length = 8.0
+[sub_resource type="Animation" id="Animation_7tle5"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pupil:position")
+tracks/0/path = NodePath("WatcherFrame:material:shader_parameter/red_displacement")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 2.8, 3, 3.7, 3.9, 4.1, 4.3, 5.1, 5.4, 7.3, 7.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(240, 100), Vector2(260, 70), Vector2(240, 100), Vector2(240, 100), Vector2(180, 70), Vector2(240, 100), Vector2(230, 100), Vector2(195, 117), Vector2(180, 100), Vector2(200, 110), Vector2(180, 100), Vector2(180, 100), Vector2(240, 100)]
+"values": [0.00600005]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WatcherFrame:material:shader_parameter/green_displacement")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.41]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WatcherFrame:material:shader_parameter/blue_displacement")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.543]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WatcherFrame:material:shader_parameter/ghost")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.225]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WatcherFrame:material:shader_parameter/scan_effect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
 }
 
 [sub_resource type="Animation" id="Animation_l2xu1"]
@@ -115,67 +167,36 @@ tracks/4/keys = {
 "values": [0.0, 0.2, 0.0, 0.52, 0.52, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_7tle5"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_5upjb"]
+resource_name = "eye-wander-1"
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WatcherFrame:material:shader_parameter/red_displacement")
+tracks/0/path = NodePath("Pupil:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1.3, 1.7, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.00600005]
+"values": [Vector2(240, 100), Vector2(230, 100), Vector2(195, 117), Vector2(180, 100), Vector2(200, 110), Vector2(180, 100), Vector2(180, 100), Vector2(240, 100)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WatcherFrame:material:shader_parameter/green_displacement")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_jjsuv"]
+resource_name = "eye-wander-2"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 2.8, 3, 3.7, 3.9, 4.1, 4.3, 5.1, 5.4, 7.3, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.41]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WatcherFrame:material:shader_parameter/blue_displacement")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.543]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("WatcherFrame:material:shader_parameter/ghost")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.225]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("WatcherFrame:material:shader_parameter/scan_effect")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.2]
+"values": [Vector2(240, 100), Vector2(260, 70), Vector2(240, 100), Vector2(240, 100), Vector2(180, 70), Vector2(240, 100), Vector2(230, 100), Vector2(195, 117), Vector2(180, 100), Vector2(200, 110), Vector2(180, 100), Vector2(180, 100), Vector2(240, 100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_83px3"]
@@ -203,6 +224,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Screen" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_alsi5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tgsy")
+
 [node name="FuelMeter" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -225,17 +256,114 @@ texture = ExtResource("3_o12e0")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="BottomPanel" type="NinePatchRect" parent="."]
+[node name="RightPanel" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.858
+anchor_top = 0.226
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.359985
+offset_top = -41.08
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="border" type="Panel" parent="RightPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mryt")
+
+[node name="TextureRect" type="TextureRect" parent="RightPanel"]
+modulate = Color(0.819608, 0.933333, 0.666667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_nqav2")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="RightPanel"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.308
+anchor_right = 0.9
+anchor_bottom = 0.53
+offset_left = 0.375977
+offset_top = -2.672
+offset_right = 0.375977
+offset_bottom = -2.672
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="RightPanel/CenterContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_4ivui")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPanel/CenterContainer"]
+layout_mode = 2
+
+[node name="spacer" type="Label" parent="RightPanel/CenterContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_0jujh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RightPanel/CenterContainer/VBoxContainer"]
+modulate = Color(0.890196, 0.482353, 0.0352941, 1)
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=32
+]QUOTA[/font_size][/center]"
+
+[node name="QuotaAmount" type="Label" parent="RightPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "0/20"
+label_settings = SubResource("LabelSettings_0jujh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomPanel" type="Control" parent="."]
+layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 925.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-texture = ExtResource("3_4ivui")
-region_rect = Rect2(14.0556, 32.8383, 30.4043, 52.5658)
+
+[node name="TextureRect2" type="Panel" parent="BottomPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8lrn")
+
+[node name="TextureRect" type="TextureRect" parent="BottomPanel"]
+modulate = Color(0.819608, 0.933333, 0.666667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_nqav2")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="BottomPanel"]
 layout_mode = 1
@@ -265,52 +393,6 @@ mouse_filter = 1
 bbcode_enabled = true
 text = "[center]FIRE[/center]"
 fit_content = true
-
-[node name="RightPanel" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.858
-anchor_top = 0.226
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -0.359985
-offset_top = -41.08
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_4ivui")
-region_rect = Rect2(14.9811, 33.1828, 28.6875, 49.4612)
-
-[node name="CenterContainer" type="CenterContainer" parent="RightPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.9
-anchor_bottom = 0.766
-offset_left = 0.375977
-offset_top = -2.672
-offset_right = 0.375977
-offset_bottom = -2.672
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="RightPanel/CenterContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="RightPanel/CenterContainer/VBoxContainer"]
-modulate = Color(0.890196, 0.482353, 0.0352941, 1)
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-bbcode_enabled = true
-text = "[center][font_size=32
-]QUOTA[/font_size][/center]"
-
-[node name="QuotaAmount" type="Label" parent="RightPanel/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "0/20"
-label_settings = SubResource("LabelSettings_0jujh")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Watcher" type="Control" parent="."]
 layout_mode = 1

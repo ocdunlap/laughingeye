@@ -338,7 +338,6 @@ z_index = 100
 script = ExtResource("1_qs4w0")
 
 [node name="ExplodeEffect" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_whn3e")
 animation = &"fire"
 speed_scale = 1.2
